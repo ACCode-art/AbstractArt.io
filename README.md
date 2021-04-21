@@ -7,15 +7,15 @@ A faux NFT exchange website built around the characters of Gotham.
 
 ## How to log in:
 
-username - joker
+username: joker
 
-password - 1
+password: 1
 
 or...
 
-username - batman
+username: batman
 
-password - 1
+password: 1
 
 ### Current Functionality
 
