@@ -1,0 +1,236 @@
+* {
+  font-size: 1.1rem;
+  color: white;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Darker Grotesque', sans-serif;
+}
+
+.loginPage {
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(0, 0, 0);
+}
+
+.loginPage > h1 {
+  font-size: 120px;
+  margin-bottom: 30px;
+}
+
+.loginPage > .loginForm {
+  font-size: 1.3rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.loginForm > .inputs {
+  font-size: 1.3rem;
+  width: 400px;
+  height: 40px;
+  padding-left: 10px;
+  margin: 10px 0;
+  border-radius: 10px;
+  outline: none;
+  border: 1px solid white;
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.loginForm > button {
+  padding-bottom: 6px;
+  cursor: pointer;
+  transition: 300ms;
+}
+
+.loginForm > button:hover {
+  background-color: green;
+}
+
+.loginForm > p {
+  color: white;
+}
+
+.main {
+  width: 100vw;
+  height: 100vh;
+  display: none;
+}
+
+.menu {
+  display: none;
+  position: fixed;
+  height: 100vh;
+  width: 400px;
+  right: 0;
+  background-color: rgb(0, 0, 0);
+  animation: 500ms fade-in ease-in-out;
+}
+
+.menu > .menu-selection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 8vh;
+  width: 100%;
+  cursor: pointer;
+  padding-bottom: 3px;
+  transition: 300ms;
+}
+.menu-selection:hover {
+  background-color: rgb(58, 58, 58);
+}
+
+.fa-caret-down {
+  cursor: pointer;
+  transition: 300ms;
+}
+
+.fa-caret-down:hover {
+  color: green;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  height: 8vh;
+  background-color: black;
+  padding: 0 30px;
+}
+
+.nav__left {
+  font-weight: bold;
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.nav__middle {
+  width: 300px;
+}
+
+.nav__middle > input {
+  width: 100%;
+  border: none;
+  outline: none;
+  padding-left: 5px;
+
+  background-color: rgb(49, 49, 49);
+  height: 40px;
+}
+
+.nav__right {
+  width: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.nav__right > .avatar {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+.nav__right > .currentWorth {
+  margin-right: 30px;
+  color: rgb(53, 195, 53);
+}
+
+.nav__right > .avatar:hover {
+  cursor: pointer;
+}
+
+.nav__right > .fa-caret-down {
+  margin-left: 20px;
+}
+
+.main__container {
+  display: flex;
+  background-color: rgb(20, 20, 20);
+  height: 92vh;
+}
+
+.main__containerLeft {
+  background-color: rgb(0, 0, 0);
+  width: 450px;
+}
+
+.crypto__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px;
+  height: 75px;
+  background-color: rgb(31, 31, 31);
+  transition: 300ms;
+}
+
+.crypto__container:hover {
+  background-color: rgb(0, 0, 0);
+  cursor: pointer;
+}
+
+.crypto__container > img {
+  display: none;
+}
+
+.crypto__keys {
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  height: 35px;
+  background-color: rgb(0, 0, 0);
+  transition: 300ms;
+}
+
+.container__obj {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.main__containerRight {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  background-color: rgb(17, 17, 17);
+}
+
+.main__containerRight > p {
+  font-size: 100px;
+}
+
+.main__containerRight > img {
+  height: 600px;
+  width: 450px;
+  transition: 300ms;
+}
+
+.main__containerRight > img:hover {
+  transform: scale(1.25) rotate(10deg);
+  cursor: pointer;
+  box-shadow: 5px 3px rgb(75, 75, 75);
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-400px);
+  }
+
+  to {
+    opacity: 1;
+  }
+}
