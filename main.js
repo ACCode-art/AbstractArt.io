@@ -38,7 +38,7 @@ const nfts = [
       'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2F736x%2Fee%2F6e%2F61%2Fee6e61f2deaa1c2ec468322e0fd3a737.jpg&f=1&nofb=1',
   },
   {
-    name: 'Batwomen',
+    name: 'catwomen',
     price: 34,
     img:
       'https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fcomicartcommunity.com%2Fgallery%2Fdata%2Fmedia%2F613%2FBATWOMAN_7.jpg&f=1&nofb=1',
@@ -161,6 +161,8 @@ closeMenu.addEventListener('click', () => {
   menu.style.display = 'none';
 });
 
+const closerLook = document.querySelector('.closerLook');
+
 main__containerLeft.addEventListener('click', (e) => {
   const container = e.target.closest('.crypto__container');
   const img = container.querySelector('img').src;
@@ -168,7 +170,12 @@ main__containerLeft.addEventListener('click', (e) => {
 src=${img}
 alt=""
 />`;
-  main__containerRight.innerHTML = HTML;
+
+  searchResults.style.display = 'none';
+
+  closerLook.style.display = 'flex';
+
+  closerLook.innerHTML = HTML;
 });
 
 searchInput.addEventListener('keyup', (e) => {
@@ -178,29 +185,27 @@ searchInput.addEventListener('keyup', (e) => {
     return nft.name.toLowerCase().includes(searchString);
   });
 
-  /* displayNft(filtered); */
+  displayNft(filtered);
 
   console.log(filtered);
 });
 
-/* const displayNft = (pokemon) => {
-  const htmlString = pokemon
-    .map((poke) => {
-      return `<div
-      class="pokemonContainer"
-      style="background-image: url(${poke.images.small})"
-    >
-      <div class="pokemonContainer__overlay" >
-        <h2>${poke.name}</h2>
-        add+
-        <div class="set">
-          <h3>${poke.set.name}</h3>
-          <p>${poke.number}/${poke.set.total}</p>
-        </div>
-      </div>
+const searchResults = document.querySelector('.searchResults');
+
+const displayNft = (filtered) => {
+  searchResults.style.display = 'flex';
+  const htmlString = filtered
+    .map((nft) => {
+      return `<div class="nft">
+      <img
+        src=${nft.img}
+        alt=""
+      />
     </div>`;
     })
-    .join("");
+    .join('');
 
-  main.innerHTML = htmlString;
-}; */
+  closerLook.style.display = 'none';
+
+  searchResults.innerHTML = htmlString;
+};
