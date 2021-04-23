@@ -107,12 +107,13 @@ const users = [
 // login Logic ----------------------------------------
 
 let currentUser;
+let worth = 0;
 
 loginForm.addEventListener('submit', (e) => {
   e.preventDefault();
 
   currentUser = users.find((acc) => acc.username === usernameInput.value);
-  let worth = 0;
+
   if (currentUser?.password === passwordInput.value) {
     loginPage.style.display = 'none';
     main.style.display = 'block';
@@ -150,7 +151,7 @@ logOut.addEventListener('click', () => {
   main.style.display = 'none';
   menu.style.display = 'none';
   main__containerLeft.textContent = '';
-  main__containerRight.innerHTML = `<p>Welcome to Gotham NFT</p>`;
+  searchInput.value = '';
 });
 
 faMenu.addEventListener('click', () => {
@@ -166,11 +167,9 @@ const closerLook = document.querySelector('.closerLook');
 main__containerLeft.addEventListener('click', (e) => {
   const container = e.target.closest('.crypto__container');
   const img = container.querySelector('img').src;
-  const HTML = `  <img
-src=${img}
+  const HTML = `  <img src=${img}
 alt=""
 />`;
-
   searchResults.style.display = 'none';
 
   closerLook.style.display = 'flex';
@@ -185,6 +184,8 @@ searchInput.addEventListener('keyup', (e) => {
     return nft.name.toLowerCase().includes(searchString);
   });
 
+  closerLook.style.display = 'none';
+
   displayNft(filtered);
 
   console.log(filtered);
@@ -193,6 +194,7 @@ searchInput.addEventListener('keyup', (e) => {
 const searchResults = document.querySelector('.searchResults');
 
 const displayNft = (filtered) => {
+  closerLook.style.display = 'none';
   searchResults.style.display = 'flex';
   const htmlString = filtered
     .map((nft) => {
@@ -201,11 +203,38 @@ const displayNft = (filtered) => {
         src=${nft.img}
         alt=""
       />
+      <p class='nftName'>${nft.name}</p>
+      <p class='nftPrice'>${nft.price}</p>
     </div>`;
     })
     .join('');
 
-  closerLook.style.display = 'none';
-
   searchResults.innerHTML = htmlString;
 };
+
+main__containerRight.addEventListener('click', (e) => {
+  const container = e.target.closest('.nft');
+  const name = container.querySelector('.nftName').textContent;
+  const price = container.querySelector('.nftPrice').textContent;
+  const img = container.querySelector('img').src;
+  const numberPrice = Number(price);
+
+  if (currentUser.funds > numberPrice) {
+    const HTML = ` <div class="crypto__container">
+    <p>${name}</p>
+    
+    <p>$${price}</p>
+
+    <img src=${img}/>
+
+  </div>`;
+
+    main__containerLeft.insertAdjacentHTML('beforeend', HTML);
+
+    balance.textContent = `Balance: $${(currentUser.funds =
+      currentUser.funds - numberPrice)}`;
+
+    currentWorth.textContent = `Portfolio Worth: $${(worth =
+      worth + numberPrice)}`;
+  } else alert('NO MORE FUNDS :(');
+});
