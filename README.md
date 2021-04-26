@@ -2,7 +2,7 @@
 
 A faux NFT exchange website built around the characters of Gotham.
 
-# V1.0.3
+# V1.0.4
 
 ## How to log in:
 
@@ -25,6 +25,7 @@ password: 1
 - Show current free funds
 - Search for all NFT in 'database' and buy.
 - Free funds and current worth react dynamically to purchases
+- Deposit funds
 
 ### Upcoming Functionality
 

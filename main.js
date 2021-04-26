@@ -10,17 +10,25 @@ const main = document.querySelector('.main');
 const menu = document.querySelector('.menu');
 const closeMenu = document.querySelector('.closeMenu');
 
-const faMenu = document.querySelector('.fa-caret-down');
+const openMenu = document.querySelector('.fa-caret-down');
 const currentlyLoggedIn = document.querySelector('.currentlyLoggedIn');
 const avatar = document.querySelector('.avatar');
 
 const main__containerLeft = document.querySelector('.main__containerLeft');
 const currentWorth = document.querySelector('.currentWorth');
-const balance = document.querySelector('.balance');
 
 const main__containerRight = document.querySelector('.main__containerRight');
+const balance = document.querySelector('.balance');
 
 const searchInput = document.querySelector('.searchInput');
+const searchResults = document.querySelector('.searchResults');
+const closerLook = document.querySelector('.closerLook');
+
+const depositFunds = document.querySelector('.depositFunds');
+const depositFunds__overlay = document.querySelector('.depositFunds__overlay');
+const depositFunds__input = document.querySelector('.depositFunds__input');
+const depositFunds__button = document.querySelector('.depositFunds__button');
+const depositFunds__exit = document.querySelector('.depositFunds__exit');
 
 // 'Databases' ----------------------------------------
 
@@ -154,15 +162,13 @@ logOut.addEventListener('click', () => {
   searchInput.value = '';
 });
 
-faMenu.addEventListener('click', () => {
+openMenu.addEventListener('click', () => {
   menu.style.display = 'block';
 });
 
 closeMenu.addEventListener('click', () => {
   menu.style.display = 'none';
 });
-
-const closerLook = document.querySelector('.closerLook');
 
 main__containerLeft.addEventListener('click', (e) => {
   const container = e.target.closest('.crypto__container');
@@ -190,8 +196,6 @@ searchInput.addEventListener('keyup', (e) => {
 
   console.log(filtered);
 });
-
-const searchResults = document.querySelector('.searchResults');
 
 const displayNft = (filtered) => {
   closerLook.style.display = 'none';
@@ -237,4 +241,29 @@ main__containerRight.addEventListener('click', (e) => {
     currentWorth.textContent = `Portfolio Worth: $${(worth =
       worth + numberPrice)}`;
   } else alert('NO MORE FUNDS :(');
+});
+
+// deposit funds logic
+
+depositFunds.addEventListener('click', () => {
+  depositFunds__overlay.style.display = 'flex';
+});
+
+depositFunds__exit.addEventListener('click', () => {
+  depositFunds__overlay.style.display = 'none';
+});
+
+depositFunds__button.addEventListener('click', () => {
+  if (depositFunds__input.value.match(/[0-9]/g)) {
+    const depositValue = Number(depositFunds__input.value);
+
+    currentUser.funds = currentUser.funds + depositValue;
+
+    balance.textContent = `Balance: $${currentUser.funds}`;
+
+    depositFunds__overlay.style.display = 'none';
+
+    depositFunds__input.value = '';
+  } else alert('Enter valid numbers');
+  depositFunds__input.value = '';
 });
