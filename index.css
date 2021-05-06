@@ -162,7 +162,7 @@
 
 .nav__left {
   font-weight: bold;
-  flex: 1;
+  flex: 2;
   display: flex;
   align-items: center;
 }
@@ -177,14 +177,9 @@
   margin-left: 30px;
   cursor: pointer;
 }
-.nav__right > .balance {
-  font-weight: bold;
-  color: green;
-  margin-right: 30px;
-}
 
 .nav__middle {
-  width: 300px;
+  flex: 1;
 }
 
 .nav__middle > input {
@@ -198,7 +193,7 @@
 }
 
 .nav__right {
-  width: 400px;
+  flex: 2;
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -208,6 +203,12 @@
   width: 40px;
   height: 40px;
   margin-right: 10px;
+}
+
+.nav__right > .balance {
+  font-weight: bold;
+  color: green;
+  margin-right: 30px;
 }
 
 .currentWorth {
@@ -229,7 +230,7 @@
 }
 
 .main__containerLeft {
-  background-color: rgb(0, 0, 0);
+  background-color: rgb(200, 200, 200);
   width: 450px;
 }
 
@@ -239,7 +240,9 @@
   align-items: center;
   padding: 30px;
   height: 75px;
-  background-color: rgb(31, 31, 31);
+  border-bottom: 1px solid white;
+
+  background-color: rgba(31, 31, 31, 0.239);
   transition: 300ms;
 }
 
@@ -271,12 +274,36 @@
 }
 
 .main__containerRight {
-  /*   display: flex;
-  text-align: center;
-  align-items: center; */
   justify-content: center;
   flex: 1;
-  background-color: rgb(17, 17, 17);
+  background-color: rgb(88, 88, 88);
+  overflow-y: scroll;
+}
+
+.howToUse {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+.howToUse > h1 {
+  font-size: 40px;
+}
+
+.main__containerRight::-webkit-scrollbar {
+  width: 8px;
+}
+
+.main__containerRight::-webkit-scrollbar-track {
+  background: rgb(0, 0, 0);
+}
+
+.main__containerRight::-webkit-scrollbar-thumb {
+  background-color: rgb(251, 251, 251); /* color of the scroll thumb */
+  border-radius: 20px; /* roundness of the scroll thumb */
 }
 
 .main__containerRight > p {
@@ -284,13 +311,13 @@
 }
 
 .closerLook > img {
-  height: 600px;
-  width: 450px;
+  height: 80%;
+
   transition: 300ms;
 }
 
 .closerLook > img:hover {
-  transform: scale(1.25) rotate(10deg);
+  transform: scale(1.1);
   cursor: pointer;
   box-shadow: 5px 3px rgb(75, 75, 75);
 }
@@ -301,7 +328,6 @@
 }
 
 .closerLook {
-  width: 100%;
   height: 100%;
   display: flex;
   align-items: center;
@@ -313,6 +339,7 @@
   width: 220px;
   margin-left: 10px;
   margin-top: 10px;
+  margin-bottom: 60px;
 }
 
 .nft:hover {
@@ -334,5 +361,34 @@
 
   to {
     opacity: 1;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .loginPage > h1 {
+    padding: 0 10px;
+    font-size: 70px;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .loginForm > .inputs {
+    width: 200px;
+  }
+}
+
+@media only screen and (max-width: 1050px) {
+  .depositFunds {
+    display: none !important;
+  }
+
+  .main__containerLeft {
+    width: 300px;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .main__containerLeft {
+    display: none;
   }
 }

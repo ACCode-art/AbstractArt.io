@@ -19,6 +19,7 @@ const currentWorth = document.querySelector('.currentWorth');
 
 const main__containerRight = document.querySelector('.main__containerRight');
 const balance = document.querySelector('.balance');
+const howToUse = document.querySelector('.howToUse');
 
 const searchInput = document.querySelector('.searchInput');
 const searchResults = document.querySelector('.searchResults');
@@ -46,16 +47,34 @@ const nfts = [
       'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2F736x%2Fee%2F6e%2F61%2Fee6e61f2deaa1c2ec468322e0fd3a737.jpg&f=1&nofb=1',
   },
   {
-    name: 'catwomen',
+    name: 'Catwomen',
     price: 34,
     img:
-      'https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fcomicartcommunity.com%2Fgallery%2Fdata%2Fmedia%2F613%2FBATWOMAN_7.jpg&f=1&nofb=1',
+      'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fvignette3.wikia.nocookie.net%2Fmarvel_dc%2Fimages%2Fe%2Fe8%2FCatwoman_Vol_4_47_Textless.jpg%2Frevision%2Flatest%3Fcb%3D20160916171703&f=1&nofb=1',
+  },
+  {
+    name: 'Bane',
+    price: 50,
+    img:
+      'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic.comicvine.com%2Fuploads%2Foriginal%2F13%2F132517%2F5614213-bane_bm18.jpg&f=1&nofb=1',
   },
   {
     name: 'Alfred',
     price: 14,
     img:
       'https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2F1.bp.blogspot.com%2F-N4mOvQx3JMs%2FVXRRO-YRplI%2FAAAAAAAAd0A%2FOz8v2fCxZXc%2Fs1600%2FAlfred%252BPenyworth%252BDC%252BComics.jpg&f=1&nofb=1',
+  },
+  {
+    name: 'James Gordon',
+    price: 99,
+    img:
+      'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2F5d%2Fb5%2Fae%2F5db5ae6a749f629b17dca7319d4cbc3f.jpg&f=1&nofb=1',
+  },
+  {
+    name: "Ra's al Ghul",
+    price: 30,
+    img:
+      'https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fimg3.wikia.nocookie.net%2F__cb20121215100914%2Fmarvel_dc%2Fimages%2F1%2F1e%2FRa%27s_al_Ghul_0009.jpg&f=1&nofb=1',
   },
 ];
 
@@ -171,6 +190,7 @@ closeMenu.addEventListener('click', () => {
 });
 
 main__containerLeft.addEventListener('click', (e) => {
+  howToUse.style.display = 'none';
   const container = e.target.closest('.crypto__container');
   const img = container.querySelector('img').src;
   const HTML = `  <img src=${img}
@@ -184,6 +204,7 @@ alt=""
 });
 
 searchInput.addEventListener('keyup', (e) => {
+  howToUse.style.display = 'none';
   const searchString = e.target.value.toLowerCase();
 
   const filtered = nfts.filter((nft) => {
