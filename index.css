@@ -23,6 +23,10 @@
   margin-bottom: 30px;
 }
 
+.loginPage > p {
+  text-align: center;
+}
+
 .loginPage > .loginForm {
   font-size: 1.3rem;
   display: flex;
