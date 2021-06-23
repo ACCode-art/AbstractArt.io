@@ -27,6 +27,3 @@ password: 1
 - Free funds and current worth react dynamically to purchases
 - Deposit funds
 
-### Upcoming Functionality
-
-sell functionality
