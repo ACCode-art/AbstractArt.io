@@ -102,7 +102,9 @@ let worth = 0;
 loginForm.addEventListener('submit', (e) => {
   e.preventDefault();
 
-  currentUser = users.find((acc) => acc.username === usernameInput.value);
+  currentUser = users.find(
+    (acc) => acc.username === usernameInput.value.toLowerCase()
+  );
 
   if (currentUser?.password === passwordInput.value) {
     loginPage.style.display = 'none';
