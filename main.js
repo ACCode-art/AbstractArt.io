@@ -9,6 +9,9 @@ const logOut = document.querySelector('.logOut');
 const main = document.querySelector('.main');
 const menu = document.querySelector('.menu');
 const closeMenu = document.querySelector('.closeMenu');
+const collectionMenu = document.querySelector('.collectionMenu');
+const depositMenu = document.querySelector('.depositMenu');
+
 
 const openMenu = document.querySelector('.fa-caret-down');
 const currentlyLoggedIn = document.querySelector('.currentlyLoggedIn');
@@ -16,16 +19,18 @@ const avatar = document.querySelector('.avatar');
 
 const main__containerLeft = document.querySelector('.main__containerLeft');
 const currentWorth = document.querySelector('.currentWorth');
+const close__containerLeft = document.querySelector('.close__containerLeft');
+
 
 const main__containerRight = document.querySelector('.main__containerRight');
-const balance = document.querySelector('.balance');
+const balanceMenu = document.querySelector('.balanceMenu');
 const howToUse = document.querySelector('.howToUse');
 
 const searchInput = document.querySelector('.searchInput');
 const searchResults = document.querySelector('.searchResults');
 const closerLook = document.querySelector('.closerLook');
 
-const depositFunds = document.querySelector('.depositFunds');
+
 const depositFunds__overlay = document.querySelector('.depositFunds__overlay');
 const depositFunds__input = document.querySelector('.depositFunds__input');
 const depositFunds__button = document.querySelector('.depositFunds__button');
@@ -35,46 +40,46 @@ const depositFunds__exit = document.querySelector('.depositFunds__exit');
 
 const nfts = [
   {
-    name: 'Pengiun',
+    name: 'black',
     price: 58,
     img:
-      'https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fimg02.deviantart.net%2F7877%2Fi%2F2012%2F239%2F8%2Fa%2Fpenguin_by_mikemahle-d5clheg.jpg&f=1&nofb=1',
+      'https://images.pexels.com/photos/3685210/pexels-photo-3685210.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
   },
   {
-    name: 'Mr.Freeze',
+    name: 'white',
     price: 28,
     img:
-      'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2F736x%2Fee%2F6e%2F61%2Fee6e61f2deaa1c2ec468322e0fd3a737.jpg&f=1&nofb=1',
+      'https://images.pexels.com/photos/3137073/pexels-photo-3137073.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=12601',
   },
   {
-    name: 'Catwomen',
+    name: 'blue',
     price: 34,
     img:
-      'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fvignette3.wikia.nocookie.net%2Fmarvel_dc%2Fimages%2Fe%2Fe8%2FCatwoman_Vol_4_47_Textless.jpg%2Frevision%2Flatest%3Fcb%3D20160916171703&f=1&nofb=1',
+      'https://images.pexels.com/photos/1934846/pexels-photo-1934846.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
   },
   {
-    name: 'Bane',
+    name: 'red',
     price: 50,
     img:
-      'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic.comicvine.com%2Fuploads%2Foriginal%2F13%2F132517%2F5614213-bane_bm18.jpg&f=1&nofb=1',
+      'https://images.pexels.com/photos/4622942/pexels-photo-4622942.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
   },
   {
-    name: 'Alfred',
+    name: 'Green',
     price: 14,
     img:
-      'https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2F1.bp.blogspot.com%2F-N4mOvQx3JMs%2FVXRRO-YRplI%2FAAAAAAAAd0A%2FOz8v2fCxZXc%2Fs1600%2FAlfred%252BPenyworth%252BDC%252BComics.jpg&f=1&nofb=1',
+      'https://images.pexels.com/photos/3229147/pexels-photo-3229147.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
   },
   {
-    name: 'James Gordon',
+    name: 'yellow',
     price: 99,
     img:
-      'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2F5d%2Fb5%2Fae%2F5db5ae6a749f629b17dca7319d4cbc3f.jpg&f=1&nofb=1',
+      'https://images.pexels.com/photos/2333293/pexels-photo-2333293.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
   },
   {
-    name: "Ra's al Ghul",
+    name: "purple",
     price: 30,
     img:
-      'https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fimg3.wikia.nocookie.net%2F__cb20121215100914%2Fmarvel_dc%2Fimages%2F1%2F1e%2FRa%27s_al_Ghul_0009.jpg&f=1&nofb=1',
+      'https://images.pexels.com/photos/3029545/pexels-photo-3029545.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
   },
 ];
 
@@ -82,52 +87,20 @@ const nfts = [
 
 const users = [
   {
-    username: 'batman',
+    username: 'john',
     password: '1',
-    funds: 1100,
+    funds: 70,
     avatar:
-      'https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fpm1.narvii.com%2F6332%2F458f3b20fd8f20bc4ce4858a87efd69d0dc8d308_00.jpg&f=1&nofb=1',
-    nft: [
-      {
-        name: 'The Lazarus Pits',
-        boughtPrice: 120,
-        img:
-          'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.stack.imgur.com%2FC6lfV.jpg&f=1&nofb=1',
-      },
-      {
-        name: 'Gotham Academy',
-        boughtPrice: 500,
-        img:
-          'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fboundingintocomics.com%2Fwp-content%2Fuploads%2F2016%2F09%2FGOTHACSECSEM_1-1.jpg&f=1&nofb=1',
-      },
-    ],
+      'https://images.pexels.com/photos/2380794/pexels-photo-2380794.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+    nft: [],
   },
   {
-    username: 'joker',
+    username: 'eveleyn',
     password: '1',
-    funds: 300,
+    funds: 30,
     avatar:
-      'https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Ffc08.deviantart.net%2Ffs71%2Fi%2F2010%2F077%2F8%2F4%2FThe_Joker_by_j0kersWILD.jpg&f=1&nofb=1',
-    nft: [
-      {
-        name: "Haly's Circus",
-        boughtPrice: 30,
-        img:
-          'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fvignette.wikia.nocookie.net%2Fmarvel_dc%2Fimages%2Fa%2Faa%2FHaly%27s_Circus_002.jpg%2Frevision%2Flatest%3Fcb%3D20110816045416&f=1&nofb=1',
-      },
-      {
-        name: 'Arkham Asylum',
-        boughtPrice: 700,
-        img:
-          'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2Fd2%2Fe0%2Fd6%2Fd2e0d65a99499cba4905b9bf90c32029.jpg&f=1&nofb=1',
-      },
-      {
-        name: 'Batcave',
-        boughtPrice: 100,
-        img:
-          'https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fth08.deviantart.net%2Ffs71%2FPRE%2Fi%2F2012%2F280%2Fc%2F9%2Fthe_batcave_by_barneybluepants-d5gusw0.jpg&f=1&nofb=1',
-      },
-    ],
+      'https://images.pexels.com/photos/3042160/pexels-photo-3042160.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+    nft: [],
   },
 ];
 
@@ -164,7 +137,7 @@ loginForm.addEventListener('submit', (e) => {
       main__containerLeft.insertAdjacentHTML('beforeend', HTML);
     });
     currentWorth.textContent = `Portfolio Worth: $${worth}`;
-    balance.textContent = `Balance: $${currentUser.funds}`;
+    balanceMenu.textContent = `Balance: $${currentUser.funds}`;
   } else alert('wrong password');
 
   usernameInput.value = '';
@@ -182,12 +155,27 @@ logOut.addEventListener('click', () => {
 });
 
 openMenu.addEventListener('click', () => {
-  menu.style.display = 'block';
+  menu.style.display = 'block'
+
 });
 
+
+
 closeMenu.addEventListener('click', () => {
-  menu.style.display = 'none';
+  menu.style.display = 'none'
 });
+
+collectionMenu.addEventListener('click', () => {
+  main__containerLeft.classList.toggle("toggle-display");
+  menu.style.display = 'none'
+
+})
+
+close__containerLeft.addEventListener('click', () => {
+  main__containerLeft.classList.toggle("toggle-display");
+  menu.style.display = 'none'
+
+})
 
 main__containerLeft.addEventListener('click', (e) => {
   howToUse.style.display = 'none';
@@ -243,6 +231,7 @@ main__containerRight.addEventListener('click', (e) => {
   const price = container.querySelector('.nftPrice').textContent;
   const img = container.querySelector('img').src;
   const numberPrice = Number(price);
+  console.log(currentUser.funds)
 
   if (currentUser.funds > numberPrice) {
     const HTML = ` <div class="crypto__container">
@@ -255,18 +244,19 @@ main__containerRight.addEventListener('click', (e) => {
   </div>`;
 
     main__containerLeft.insertAdjacentHTML('beforeend', HTML);
-
-    balance.textContent = `Balance: $${(currentUser.funds =
+    
+    balanceMenu.textContent = `Balance: $${(currentUser.funds =
       currentUser.funds - numberPrice)}`;
 
     currentWorth.textContent = `Portfolio Worth: $${(worth =
       worth + numberPrice)}`;
-  } else alert('NO MORE FUNDS :(');
+      alert(`You have bought ${name} art. Congratulations!!! :)`)
+  } else alert('NO MORE FUNDS :(. Use the deposit funds feature in the side menu!');
 });
 
 // deposit funds logic
 
-depositFunds.addEventListener('click', () => {
+depositMenu.addEventListener('click', () => {
   depositFunds__overlay.style.display = 'flex';
 });
 
@@ -280,7 +270,7 @@ depositFunds__button.addEventListener('click', () => {
 
     currentUser.funds = currentUser.funds + depositValue;
 
-    balance.textContent = `Balance: $${currentUser.funds}`;
+    balanceMenu.textContent = `Balance: $${currentUser.funds}`;
 
     depositFunds__overlay.style.display = 'none';
 

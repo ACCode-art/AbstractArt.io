@@ -1,26 +1,30 @@
 * {
   font-size: 1.1rem;
-  color: white;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: 'Darker Grotesque', sans-serif;
+  
 }
 
+ 
+
 .loginPage {
-  color: white;
+  background: rgb(255,255,255);
+  background: linear-gradient(73deg, rgba(255,255,255,1) 0%, rgb(58, 204, 172) 53%, rgb(223, 148, 243) 100%);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   width: 100vw;
   height: 100vh;
-  background-color: rgb(0, 0, 0);
+  
 }
 
 .loginPage > h1 {
-  font-size: 120px;
+  font-size: 200px;
   margin-bottom: 30px;
+  text-align: center;
 }
 
 .loginPage > p {
@@ -28,6 +32,7 @@
 }
 
 .loginPage > .loginForm {
+ 
   font-size: 1.3rem;
   display: flex;
   flex-direction: column;
@@ -36,27 +41,30 @@
 .loginForm > .inputs {
   font-size: 1.3rem;
   width: 400px;
-  height: 40px;
-  padding-left: 10px;
+  height: 50px;
+  padding-left: 12px;
   margin: 10px 0;
-
   outline: none;
-  border: 1px solid white;
-  background-color: rgba(255, 255, 255, 0);
+  border: none;
+  border-radius: 30px;
+  backdrop-filter: blur(5px);
+  background-color: rgba(255, 255, 255, 0.178);
 }
 
 .loginForm > button {
+  color: black !important;
   padding-bottom: 6px;
   cursor: pointer;
   transition: 300ms;
 }
 
 .loginForm > button:hover {
-  background-color: green;
+  background-color: rgb(240, 240, 240);
 }
 
 .loginForm > p {
-  color: white;
+  font-weight: bold;
+  color: rgb(0, 0, 0);
   text-align: center;
 }
 
@@ -64,9 +72,13 @@
   width: 100vw;
   height: 100vh;
   display: none;
+  background: rgb(255,255,255);
+  background: linear-gradient(73deg, rgba(255,255,255,1) 0%, rgb(58, 204, 172) 53%, rgb(223, 148, 243) 100%);
+ 
 }
 
 .depositFunds__overlay {
+ 
   display: none;
   align-items: center;
   justify-content: center;
@@ -74,7 +86,8 @@
   width: 100vw;
   height: 100vh;
   position: fixed;
-  background-color: rgb(0, 0, 0);
+  backdrop-filter: blur(40px);
+  background-color: rgba(0, 0, 0, 0.185);
   z-index: 1;
 }
 
@@ -82,10 +95,11 @@
   color: white;
   margin-bottom: 30px;
   height: 50px;
-  width: 40%;
+  width: 200px;
   padding-left: 5px;
   background-color: black;
-  border: 1px solid white;
+  border: none;
+
 }
 
 .depositFunds__button {
@@ -95,11 +109,12 @@
   color: white;
   background-color: black;
   outline: none;
-  border: 1px solid;
-  width: 100px;
-  height: 100px;
+  border: none;
+  width: 200px;
+  height: 40px;
   cursor: pointer;
   transition: 300ms;
+
 }
 
 .depositFunds__button:hover {
@@ -114,24 +129,29 @@
   color: white;
   background-color: rgb(170, 5, 5);
   outline: none;
-  border: 1px solid white;
-  width: 100px;
-  height: 100px;
+ border: none;
+  width: 200px;
+  height: 40px;
   cursor: pointer;
   margin-bottom: 10px;
 }
 
 .menu {
+
+  z-index: 2;
   display: none;
   position: fixed;
-  height: 100vh;
+  height: 92vh;
   width: 400px;
   right: 0;
-  background-color: rgb(0, 0, 0);
+  bottom: 0;
+  background-color: rgba(246, 246, 246, 0.137);
+  backdrop-filter: blur(5px);
   animation: 500ms fade-in ease-in-out;
 }
 
 .menu > .menu-selection {
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -141,8 +161,64 @@
   padding-bottom: 3px;
   transition: 300ms;
 }
+
+.menu > .menu-selection > p {
+  color: white;
+}
 .menu-selection:hover {
-  background-color: rgb(58, 58, 58);
+
+  transform: translateX(-50px);
+  font-weight: bold;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+}
+
+
+
+
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 8vh;
+  padding: 0 30px;
+ 
+}
+
+.nav__left {
+  font-weight: bold;
+  flex: 2;
+  display: flex;
+  align-items: center;
+}
+
+
+.nav__middle {
+  flex: 1;
+}
+
+.nav__middle > input {
+  width: 100%;
+  border: none;
+  outline: none;
+  padding-left: 5px;
+  color: rgb(0, 0, 0);
+  background-color: rgba(49, 49, 49, 0.089);
+  height: 40px;
+}
+
+.nav__right {
+  flex: 2;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; 
+}
+
+.nav__right > .avatar {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
 }
 
 .fa-caret-down {
@@ -154,73 +230,12 @@
   color: green;
 }
 
-.nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  color: white;
-  height: 8vh;
-  background-color: black;
-  padding: 0 30px;
-}
-
-.nav__left {
-  font-weight: bold;
-  flex: 2;
-  display: flex;
-  align-items: center;
-}
-
-.depositFunds {
-  height: 40px;
-  width: 130px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid white;
-  margin-left: 30px;
-  cursor: pointer;
-}
-
-.nav__middle {
-  flex: 1;
-}
-
-.nav__middle > input {
-  width: 100%;
-  border: none;
-  outline: none;
-  padding-left: 5px;
-  color: white;
-  background-color: rgb(49, 49, 49);
-  height: 40px;
-}
-
-.nav__right {
-  flex: 2;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-}
-
-.nav__right > .avatar {
-  width: 40px;
-  height: 40px;
-  margin-right: 10px;
-}
-
-.nav__right > .balance {
-  font-weight: bold;
-  color: green;
-  margin-right: 30px;
-}
-
 .currentWorth {
   color: grey;
 }
 
 .nav__right > .avatar:hover {
-  cursor: pointer;
+  cursor: default;
 }
 
 .nav__right > .fa-caret-down {
@@ -229,13 +244,37 @@
 
 .main__container {
   display: flex;
-  background-color: rgb(20, 20, 20);
-  height: 92vh;
+  height: 92vh;  
 }
 
 .main__containerLeft {
-  background-color: rgb(200, 200, 200);
+  z-index: 2  ;
+  display: none;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  height: 92vh;
+  flex-direction: column;
+  backdrop-filter: blur(50px);
+  background-color: rgba(245, 245, 245, 0.294);
   width: 450px;
+  animation:  fade-in-left 100ms ease-in-out;
+}
+
+.close__containerLeft{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  cursor: pointer;
+  height: 40px;
+  transition: 300ms;
+}
+
+.close__containerLeft:hover{
+  background-color: white;
+
 }
 
 .crypto__container {
@@ -244,14 +283,12 @@
   align-items: center;
   padding: 30px;
   height: 75px;
-  border-bottom: 1px solid white;
-
-  background-color: rgba(31, 31, 31, 0.239);
+  border-bottom: 1px solid rgb(184, 184, 184);
   transition: 300ms;
 }
 
 .crypto__container:hover {
-  background-color: rgb(0, 0, 0);
+  background-color: rgba(246, 246, 246, 0.431);
   cursor: pointer;
 }
 
@@ -266,7 +303,6 @@
   align-items: center;
   padding: 30px;
   height: 35px;
-  background-color: rgb(0, 0, 0);
   transition: 300ms;
 }
 
@@ -280,8 +316,8 @@
 .main__containerRight {
   justify-content: center;
   flex: 1;
-  background-color: rgb(88, 88, 88);
   overflow-y: scroll;
+  
 }
 
 .howToUse {
@@ -290,10 +326,12 @@
   align-items: center;
   flex-direction: column;
   width: 100%;
-  height: 100%;
+  height: 92vh;
+  padding: 2vh;
 }
 
-.howToUse > h1 {
+.howToUse > p {
+  text-align: center;
   font-size: 40px;
 }
 
@@ -302,7 +340,7 @@
 }
 
 .main__containerRight::-webkit-scrollbar-track {
-  background: rgb(0, 0, 0);
+  background: rgba(0, 0, 0, 0);
 }
 
 .main__containerRight::-webkit-scrollbar-thumb {
@@ -316,12 +354,10 @@
 
 .closerLook > img {
   height: 80%;
-
   transition: 300ms;
 }
 
 .closerLook > img:hover {
-  transform: scale(1.1);
   cursor: pointer;
   box-shadow: 5px 3px rgb(75, 75, 75);
 }
@@ -333,7 +369,7 @@
 
 .closerLook {
   height: 100%;
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
 }
@@ -357,10 +393,29 @@
   width: 100%;
 }
 
+.toggle-display{
+  display: flex;
+}
+
+.toggle-display-block{
+  display: block;
+}
+
 @keyframes fade-in {
   from {
     opacity: 0;
     transform: translateY(-400px);
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-400px);
   }
 
   to {
@@ -386,13 +441,40 @@
     display: none !important;
   }
 
-  .main__containerLeft {
-    width: 300px;
-  }
+  
 }
 
 @media only screen and (max-width: 800px) {
-  .main__containerLeft {
+  .nav__left{
     display: none;
   }
+
+  
+
+ 
 }
+
+@media only screen and (max-width: 400px) {
+  .main__containerLeft{
+   
+    width: 100%;
+  }
+
+  .menu{
+  
+    width: 100%;
+  }
+
+  .closerLook > img {
+    width: 90%;
+    height: auto;
+  
+    transition: 300ms;
+  }
+  
+}
+
+
+
+
+
