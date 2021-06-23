@@ -12,7 +12,6 @@ const closeMenu = document.querySelector('.closeMenu');
 const collectionMenu = document.querySelector('.collectionMenu');
 const depositMenu = document.querySelector('.depositMenu');
 
-
 const openMenu = document.querySelector('.fa-caret-down');
 const currentlyLoggedIn = document.querySelector('.currentlyLoggedIn');
 const avatar = document.querySelector('.avatar');
@@ -21,7 +20,6 @@ const main__containerLeft = document.querySelector('.main__containerLeft');
 const currentWorth = document.querySelector('.currentWorth');
 const close__containerLeft = document.querySelector('.close__containerLeft');
 
-
 const main__containerRight = document.querySelector('.main__containerRight');
 const balanceMenu = document.querySelector('.balanceMenu');
 const howToUse = document.querySelector('.howToUse');
@@ -29,7 +27,6 @@ const howToUse = document.querySelector('.howToUse');
 const searchInput = document.querySelector('.searchInput');
 const searchResults = document.querySelector('.searchResults');
 const closerLook = document.querySelector('.closerLook');
-
 
 const depositFunds__overlay = document.querySelector('.depositFunds__overlay');
 const depositFunds__input = document.querySelector('.depositFunds__input');
@@ -42,44 +39,37 @@ const nfts = [
   {
     name: 'black',
     price: 58,
-    img:
-      'https://images.pexels.com/photos/3685210/pexels-photo-3685210.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+    img: 'https://images.pexels.com/photos/3685210/pexels-photo-3685210.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
   },
   {
     name: 'white',
     price: 28,
-    img:
-      'https://images.pexels.com/photos/3137073/pexels-photo-3137073.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=12601',
+    img: 'https://images.pexels.com/photos/3137073/pexels-photo-3137073.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=12601',
   },
   {
     name: 'blue',
     price: 34,
-    img:
-      'https://images.pexels.com/photos/1934846/pexels-photo-1934846.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+    img: 'https://images.pexels.com/photos/1934846/pexels-photo-1934846.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
   },
   {
     name: 'red',
     price: 50,
-    img:
-      'https://images.pexels.com/photos/4622942/pexels-photo-4622942.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+    img: 'https://images.pexels.com/photos/4622942/pexels-photo-4622942.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
   },
   {
     name: 'Green',
     price: 14,
-    img:
-      'https://images.pexels.com/photos/3229147/pexels-photo-3229147.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+    img: 'https://images.pexels.com/photos/3229147/pexels-photo-3229147.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
   },
   {
     name: 'yellow',
     price: 99,
-    img:
-      'https://images.pexels.com/photos/2333293/pexels-photo-2333293.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+    img: 'https://images.pexels.com/photos/2333293/pexels-photo-2333293.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
   },
   {
-    name: "purple",
+    name: 'purple',
     price: 30,
-    img:
-      'https://images.pexels.com/photos/3029545/pexels-photo-3029545.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+    img: 'https://images.pexels.com/photos/3029545/pexels-photo-3029545.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
   },
 ];
 
@@ -147,35 +137,26 @@ loginForm.addEventListener('submit', (e) => {
 // Event Listeners ----------------------------------------
 
 logOut.addEventListener('click', () => {
-  loginPage.style.display = 'flex';
-  main.style.display = 'none';
-  menu.style.display = 'none';
-  main__containerLeft.textContent = '';
-  searchInput.value = '';
+  window.location = window.location.href;
 });
 
 openMenu.addEventListener('click', () => {
-  menu.style.display = 'block'
-
+  menu.style.display = 'block';
 });
 
-
-
 closeMenu.addEventListener('click', () => {
-  menu.style.display = 'none'
+  menu.style.display = 'none';
 });
 
 collectionMenu.addEventListener('click', () => {
-  main__containerLeft.classList.toggle("toggle-display");
-  menu.style.display = 'none'
-
-})
+  main__containerLeft.classList.toggle('toggle-display');
+  menu.style.display = 'none';
+});
 
 close__containerLeft.addEventListener('click', () => {
-  main__containerLeft.classList.toggle("toggle-display");
-  menu.style.display = 'none'
-
-})
+  main__containerLeft.classList.toggle('toggle-display');
+  menu.style.display = 'none';
+});
 
 main__containerLeft.addEventListener('click', (e) => {
   howToUse.style.display = 'none';
@@ -231,7 +212,7 @@ main__containerRight.addEventListener('click', (e) => {
   const price = container.querySelector('.nftPrice').textContent;
   const img = container.querySelector('img').src;
   const numberPrice = Number(price);
-  console.log(currentUser.funds)
+  console.log(currentUser.funds);
 
   if (currentUser.funds > numberPrice) {
     const HTML = ` <div class="crypto__container">
@@ -244,14 +225,15 @@ main__containerRight.addEventListener('click', (e) => {
   </div>`;
 
     main__containerLeft.insertAdjacentHTML('beforeend', HTML);
-    
+
     balanceMenu.textContent = `Balance: $${(currentUser.funds =
       currentUser.funds - numberPrice)}`;
 
     currentWorth.textContent = `Portfolio Worth: $${(worth =
       worth + numberPrice)}`;
-      alert(`You have bought ${name} art. Congratulations!!! :)`)
-  } else alert('NO MORE FUNDS :(. Use the deposit funds feature in the side menu!');
+    alert(`You have bought ${name} art. Congratulations!!! :)`);
+  } else
+    alert('NO MORE FUNDS :(. Use the deposit funds feature in the side menu!');
 });
 
 // deposit funds logic

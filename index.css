@@ -4,21 +4,22 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Darker Grotesque', sans-serif;
-  
 }
 
- 
-
 .loginPage {
-  background: rgb(255,255,255);
-  background: linear-gradient(73deg, rgba(255,255,255,1) 0%, rgb(58, 204, 172) 53%, rgb(223, 148, 243) 100%);
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    73deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgb(58, 204, 172) 53%,
+    rgb(223, 148, 243) 100%
+  );
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   width: 100vw;
   height: 100vh;
-  
 }
 
 .loginPage > h1 {
@@ -32,7 +33,6 @@
 }
 
 .loginPage > .loginForm {
- 
   font-size: 1.3rem;
   display: flex;
   flex-direction: column;
@@ -48,7 +48,7 @@
   border: none;
   border-radius: 30px;
   backdrop-filter: blur(5px);
-  background-color: rgba(255, 255, 255, 0.178);
+  background-color: rgba(0, 0, 0, 0.178);
 }
 
 .loginForm > button {
@@ -72,13 +72,16 @@
   width: 100vw;
   height: 100vh;
   display: none;
-  background: rgb(255,255,255);
-  background: linear-gradient(73deg, rgba(255,255,255,1) 0%, rgb(58, 204, 172) 53%, rgb(223, 148, 243) 100%);
- 
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    73deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgb(58, 204, 172) 53%,
+    rgb(223, 148, 243) 100%
+  );
 }
 
 .depositFunds__overlay {
- 
   display: none;
   align-items: center;
   justify-content: center;
@@ -99,7 +102,6 @@
   padding-left: 5px;
   background-color: black;
   border: none;
-
 }
 
 .depositFunds__button {
@@ -114,7 +116,6 @@
   height: 40px;
   cursor: pointer;
   transition: 300ms;
-
 }
 
 .depositFunds__button:hover {
@@ -129,7 +130,7 @@
   color: white;
   background-color: rgb(170, 5, 5);
   outline: none;
- border: none;
+  border: none;
   width: 200px;
   height: 40px;
   cursor: pointer;
@@ -137,7 +138,6 @@
 }
 
 .menu {
-
   z-index: 2;
   display: none;
   position: fixed;
@@ -145,13 +145,12 @@
   width: 400px;
   right: 0;
   bottom: 0;
-  background-color: rgba(246, 246, 246, 0.137);
-  backdrop-filter: blur(5px);
+  background-color: rgba(0, 0, 0, 0.993);
+
   animation: 500ms fade-in ease-in-out;
 }
 
 .menu > .menu-selection {
-
   display: flex;
   justify-content: center;
   align-items: center;
@@ -166,16 +165,11 @@
   color: white;
 }
 .menu-selection:hover {
-
   transform: translateX(-50px);
   font-weight: bold;
   border-top-left-radius: 30px;
   border-bottom-left-radius: 30px;
 }
-
-
-
-
 
 .nav {
   display: flex;
@@ -183,7 +177,6 @@
   align-items: center;
   height: 8vh;
   padding: 0 30px;
- 
 }
 
 .nav__left {
@@ -192,7 +185,6 @@
   display: flex;
   align-items: center;
 }
-
 
 .nav__middle {
   flex: 1;
@@ -212,7 +204,7 @@
   flex: 2;
   display: flex;
   align-items: center;
-  justify-content: flex-end; 
+  justify-content: flex-end;
 }
 
 .nav__right > .avatar {
@@ -244,24 +236,29 @@
 
 .main__container {
   display: flex;
-  height: 92vh;  
+  height: 92vh;
+}
+
+.balanceMenu {
+  color: white;
 }
 
 .main__containerLeft {
-  z-index: 2  ;
+  z-index: 2;
   display: none;
   position: fixed;
   left: 0;
   bottom: 0;
   height: 92vh;
   flex-direction: column;
-  backdrop-filter: blur(50px);
-  background-color: rgba(245, 245, 245, 0.294);
+
+  background-color: rgb(0, 0, 0);
   width: 450px;
-  animation:  fade-in-left 100ms ease-in-out;
+  animation: fade-in-left 100ms ease-in-out;
 }
 
-.close__containerLeft{
+.close__containerLeft {
+  color: white;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -272,12 +269,12 @@
   transition: 300ms;
 }
 
-.close__containerLeft:hover{
+.close__containerLeft:hover {
   background-color: white;
-
 }
 
 .crypto__container {
+  color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -297,6 +294,7 @@
 }
 
 .crypto__keys {
+  color: aliceblue;
   font-weight: bold;
   display: flex;
   justify-content: space-around;
@@ -317,7 +315,6 @@
   justify-content: center;
   flex: 1;
   overflow-y: scroll;
-  
 }
 
 .howToUse {
@@ -393,11 +390,11 @@
   width: 100%;
 }
 
-.toggle-display{
+.toggle-display {
   display: flex;
 }
 
-.toggle-display-block{
+.toggle-display-block {
   display: block;
 }
 
@@ -440,41 +437,27 @@
   .depositFunds {
     display: none !important;
   }
-
-  
 }
 
 @media only screen and (max-width: 800px) {
-  .nav__left{
+  .nav__left {
     display: none;
   }
-
-  
-
- 
 }
 
 @media only screen and (max-width: 400px) {
-  .main__containerLeft{
-   
+  .main__containerLeft {
     width: 100%;
   }
 
-  .menu{
-  
+  .menu {
     width: 100%;
   }
 
   .closerLook > img {
     width: 90%;
     height: auto;
-  
+
     transition: 300ms;
   }
-  
 }
-
-
-
-
-
