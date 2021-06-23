@@ -32,6 +32,8 @@ const depositFunds__overlay = document.querySelector('.depositFunds__overlay');
 const depositFunds__input = document.querySelector('.depositFunds__input');
 const depositFunds__button = document.querySelector('.depositFunds__button');
 const depositFunds__exit = document.querySelector('.depositFunds__exit');
+const alert = document.querySelector('.alert');
+const alert__message = document.querySelector('.alert__message');
 
 // 'Databases' ----------------------------------------
 
@@ -130,7 +132,7 @@ loginForm.addEventListener('submit', (e) => {
     });
     currentWorth.textContent = `Portfolio Worth: $${worth}`;
     balanceMenu.textContent = `Balance: $${currentUser.funds}`;
-  } else alert('wrong password');
+  } else alertMessage('Wrong username/password');
 
   usernameInput.value = '';
   passwordInput.value = '';
@@ -161,12 +163,19 @@ close__containerLeft.addEventListener('click', () => {
 });
 
 main__containerLeft.addEventListener('click', (e) => {
+  if (!e.target.closest('.crypto__container')) {
+    return;
+  }
   howToUse.style.display = 'none';
   const container = e.target.closest('.crypto__container');
   const img = container.querySelector('img').src;
   const HTML = `  <img src=${img}
 alt=""
 />`;
+
+  if (main__containerLeft.classList.contains('toggle-display')) {
+    main__containerLeft.classList.toggle('toggle-display');
+  }
   searchResults.style.display = 'none';
 
   closerLook.style.display = 'flex';
@@ -175,6 +184,10 @@ alt=""
 });
 
 searchInput.addEventListener('keyup', (e) => {
+  if (main__containerLeft.classList.contains('toggle-display')) {
+    main__containerLeft.classList.toggle('toggle-display');
+  }
+
   howToUse.style.display = 'none';
   const searchString = e.target.value.toLowerCase();
 
@@ -185,8 +198,6 @@ searchInput.addEventListener('keyup', (e) => {
   closerLook.style.display = 'none';
 
   displayNft(filtered);
-
-  console.log(filtered);
 });
 
 const displayNft = (filtered) => {
@@ -209,12 +220,14 @@ const displayNft = (filtered) => {
 };
 
 main__containerRight.addEventListener('click', (e) => {
+  if (!e.target.closest('.nft')) {
+    return;
+  }
   const container = e.target.closest('.nft');
   const name = container.querySelector('.nftName').textContent;
   const price = container.querySelector('.nftPrice').textContent;
   const img = container.querySelector('img').src;
   const numberPrice = Number(price);
-  console.log(currentUser.funds);
 
   if (currentUser.funds > numberPrice) {
     const HTML = ` <div class="crypto__container">
@@ -233,9 +246,11 @@ main__containerRight.addEventListener('click', (e) => {
 
     currentWorth.textContent = `Portfolio Worth: $${(worth =
       worth + numberPrice)}`;
-    alert(`You have bought ${name} art. Congratulations!!! :)`);
+    alertMessage(`You have bought ${name} art. Congratulations!!! :)`);
   } else
-    alert('NO MORE FUNDS :(. Use the deposit funds feature in the side menu!');
+    alertMessage(
+      'NO MORE FUNDS :(. Use the deposit funds feature in the side menu!'
+    );
 });
 
 // deposit funds logic
@@ -257,8 +272,17 @@ depositFunds__button.addEventListener('click', () => {
     balanceMenu.textContent = `Balance: $${currentUser.funds}`;
 
     depositFunds__overlay.style.display = 'none';
-
+    alertMessage(`You have added $${depositValue} to your wallet`);
     depositFunds__input.value = '';
-  } else alert('Enter valid numbers');
+  } else alertMessage('Enter valid numbers');
   depositFunds__input.value = '';
 });
+
+function alertMessage(msg) {
+  alert.style.display = 'flex';
+  alert__message.textContent = msg;
+
+  setInterval(() => {
+    alert.style.display = 'none';
+  }, 2000);
+}
