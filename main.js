@@ -282,7 +282,11 @@ function alertMessage(msg) {
   alert.style.display = 'flex';
   alert__message.textContent = msg;
 
-  setInterval(() => {
+  alertOut();
+}
+
+function alertOut() {
+  setTimeout(() => {
     alert.style.display = 'none';
-  }, 2000);
+  }, 3000);
 }

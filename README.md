@@ -1,10 +1,10 @@
 # Abstract-art.io
 
-A faux art exchange website.
+## A faux art exchange website.
 
-# V1.0.2
+[Click here](https://abstractartio.netlify.app/) to use the app
 
-## How to use
+<br>
 
 ### Art pieces currently available for 'purchase'
 
@@ -13,10 +13,10 @@ A faux art exchange website.
 - blue
 - red
 - green
-- yello
+- yellow
 - purple
 
-&nbsp;
+<br>
 
 ### Users
 
@@ -30,7 +30,7 @@ or...
 
 - password: 1
 
-&nbsp;
+<br>
 
 ### Quick guide
 
@@ -38,20 +38,33 @@ or...
 2. Search for a art peice from the colors listed above
 3. Click on the art piece you would like to buy
 4. Check your portfolio by clicking on the menu arrow on the right side of the navbar and choosing 'collection'
-5. when the side panel shows, click the art piece you would like to preview
+5. When the 'collection' panel shows, click the art piece you would like to preview
 
-&nbsp;
+<br>
 <img src='./src/quick-guide-gif.gif'/>
-&nbsp;
+
+<br>
+<br>
 
 ### Deposit funds
 
 1. After log in, go to the menu and click deposit funds.
 2. Click 'deposit funds' and fill in the input value followed by clicking the depost funds button!
 
-&nbsp;
+<br>
 <img src='./src/deposit-funds-gif.gif'/>
-&nbsp;
+<br>
+<br>
+
+### Check Porfolio Worth
+
+Your portfolio worth is shown in the collection tab as shown below.
+
+<br>
+<img src='./src/worth.png'/>
+<br>
+
+<br>
 
 ### Current Functionality
 
